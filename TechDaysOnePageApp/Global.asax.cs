@@ -6,6 +6,8 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Data.Entity;
+using TechDaysOnePageApp.Models;
 
 namespace TechDaysOnePageApp
 {
@@ -44,6 +46,8 @@ namespace TechDaysOnePageApp
             RegisterRoutes(RouteTable.Routes);
 
             BundleTable.Bundles.RegisterTemplateBundles();
+
+            Database.SetInitializer<AppDbContext>(new AppDataInitializer());
         }
     }
 }
